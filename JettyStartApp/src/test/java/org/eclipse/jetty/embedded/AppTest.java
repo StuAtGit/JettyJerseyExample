@@ -10,7 +10,7 @@ import junit.framework.TestSuite;
 public class AppTest 
     extends TestCase
 {
-    public static final int timeout = 5000;
+    public static final int timeout = 10000;
     public static final int serverPort = 8080;
     /**
      * Create the test case
@@ -37,11 +37,12 @@ public class AppTest
     {
         EmbeddedJerseyServer startApp = new EmbeddedJerseyServer(serverPort);
         Thread serverThread = new Thread(startApp);
-        serverThread.run();
+        serverThread.start();
 
+        System.out.println("Server started, starting test client");
         TestClient testClient = new TestClient(serverPort);
         Thread testThread = new Thread(testClient);
-        testThread.run();
+        testThread.start();
 
         testThread.join();
         serverThread.join(timeout);

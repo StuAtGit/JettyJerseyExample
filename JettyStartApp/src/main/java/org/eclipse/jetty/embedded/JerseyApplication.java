@@ -13,7 +13,7 @@ public class JerseyApplication
     {
         try
         {
-            packages("net.example.resources");
+            packages("org.eclipse.jetty.embedded.resources");
         }
         catch (Exception e)
         {

@@ -31,8 +31,10 @@ public class TestClient
     @Override
     public void run()
     {
+        System.out.println("Start test client");
         HttpClient httpClient = HttpClients.createDefault();
-        HttpGet getStatus = new HttpGet("/api/v1/status" );
+        String endpoint = "http://localhost:" + this.serverPort + "/api/v1/status";
+        HttpGet getStatus = new HttpGet( endpoint );
         try
         {
             CloseableHttpResponse response = (CloseableHttpResponse) httpClient.execute(getStatus);
@@ -44,7 +46,7 @@ public class TestClient
             }
             else
             {
-                System.err.println("Endpoint returned error code: " + statusCode);
+                System.err.println("Request to endpoint " + endpoint +  " returned error code: " + statusCode);
                 System.err.println(response.getStatusLine().getReasonPhrase());
             }
             if (response.getEntity() != null)
@@ -56,6 +58,6 @@ public class TestClient
         {
             e.printStackTrace();
         }
-
+        System.out.println("Done with tests.");
     }
 }
