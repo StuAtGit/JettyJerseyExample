@@ -1,5 +1,5 @@
 # JettyJerseyExample
-Example of how to use Jersey with an embedded Jetty Server.
+Example of how to use Jersey with an embedded Jetty Server.<br/>
 Created in response to:
 
 https://bugs.eclipse.org/bugs/show_bug.cgi?id=459178
