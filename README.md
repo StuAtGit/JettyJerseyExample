@@ -11,3 +11,5 @@ git clone [repo]
 cd repo
 mvn test
 </pre>
+
+The test does run an embedded server on port 8080 and try to connect, so if you already have that port taken, it will fail. Requires at least java 7.
