@@ -38,7 +38,7 @@ public class AppTest
         EmbeddedJerseyServer startApp = new EmbeddedJerseyServer(serverPort);
         Thread serverThread = new Thread(startApp);
         serverThread.start();
-
+	Thread.sleep(1000);
         System.out.println("Server started, starting test client");
         TestClient testClient = new TestClient(serverPort);
         Thread testThread = new Thread(testClient);
